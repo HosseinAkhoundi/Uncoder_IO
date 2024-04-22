@@ -9,22 +9,19 @@ default_log_source:
   index: logs-*
 
 field_mapping:
-  c-uri: url.original
-  c-useragent: user_agent.original
-  cs-method: http.request.method
-  cs-bytes: http.request.body.bytes
-  cs-cookie-vars: http.cookie_vars
-  c-uri-extension: url.extension
-  c-uri-query: url.query
-  cs-cookie: http.cookie_vars
-  cs-host:
-    - url.domain
-    - destination.domain
+  c-uri: uri.original.keyword
+  c-useragent: user_agent.keyword
+  cs-method: method
+  cs-bytes: request.body.length
+  cs-cookie-vars: cookie.keyword
+  c-uri-extension: url.top_level_domain
+  c-uri-query: uri.original.keyword
+  cs-cookie: cookie.keyword
+  cs-host: url.domain
 
-  cs-referrer: http.request.referrer
+
+  cs-referrer: referrer.keyword
   cs-version: http.version
-  r-dns:
-    - destination.domain
-    - url.domain
-  sc-status: http.response.status_code
-  post-body: http.post_body
+  r-dns: url.domain
+  sc-status: status_code
+  post-body: request_body.keyword

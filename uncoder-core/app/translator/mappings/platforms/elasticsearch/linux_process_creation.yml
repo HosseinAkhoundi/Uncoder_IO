@@ -9,7 +9,7 @@ default_log_source:
   index: logs-*
 
 field_mapping:
-  CommandLine: process.command_line
-  Image: process.executable
-  ParentCommandLine: process.parent.command_line
-  ParentImage: process.parent.executable
+  CommandLine: process_command_line.keyword
+  Image: process.path.keyword
+  ParentCommandLine:  ParentCommandLine
+  ParentImage: ParentImage

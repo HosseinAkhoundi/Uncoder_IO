@@ -9,7 +9,5 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  Destination: Destination
-  EventID:
-    - event.code
-    - winlog.event_id
+  Destination: event.original.keyword
+  EventID: event.id

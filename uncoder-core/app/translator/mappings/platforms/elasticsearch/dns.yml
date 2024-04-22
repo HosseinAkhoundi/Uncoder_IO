@@ -9,9 +9,7 @@ default_log_source:
   index: logs-*
 
 field_mapping:
-  dns-query: dns.question.name
-  parent-domain:
-    - url.registered_domain
-    - destination.registered_domain
-  dns-answer: dns.answers.name
-  dns-record: dns.question.type
+  dns-query: request.original.keyword
+  parent-domain: url.registered_domain.keyword
+  dns-answer: response.original.keyword
+  dns-record: request.type.name

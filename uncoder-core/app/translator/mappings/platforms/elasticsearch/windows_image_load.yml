@@ -9,8 +9,8 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  Image: process.executable
-  ImageLoaded: file.path
-  SignatureStatus: SignatureStatus
-  OriginalFileName: OriginalFileName
-  Signed: Signed
+  Image: process_path.keyword
+  ImageLoaded: module_loaded.keyword
+  SignatureStatus: signature_status.keyword
+  OriginalFileName: OriginalFileName.keyword
+  Signed: signed

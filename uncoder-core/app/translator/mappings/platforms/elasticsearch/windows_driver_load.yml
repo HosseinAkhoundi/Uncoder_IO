@@ -9,6 +9,10 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  ImageLoaded: file.path
-  ImagePath: file.path
-  Hashes: winlog.event_data.Hashes
+  ImageLoaded: driver_loaded.keyword
+  ImagePath: driver_loaded.keyword
+  Hashes: 
+    - hash_imphash.keyword
+    - hash_md5.keyword
+    - hash_sha1.keyword
+    - hash_sha256.keyword

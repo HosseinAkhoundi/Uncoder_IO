@@ -9,11 +9,7 @@ default_log_source:
   index: logs-*
 
 field_mapping:
-  src-ip:
-    - source.address
-    - source.ip
+  src-ip: source.ip
   src-port: source.port
-  dst-ip:
-    - destination.address
-    - destination.ip
+  dst-ip: destination.ip
   dst-port: destination.port

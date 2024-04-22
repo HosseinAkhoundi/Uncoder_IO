@@ -9,8 +9,8 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  Image: process.executable
-  DestinationHostname: destination.domain
+  Image: process_path.keyword
+  DestinationHostname: dst_host_name.keyword
   DestinationIp: destination.ip
   DestinationPort: destination.port
   SourceIp: source.ip

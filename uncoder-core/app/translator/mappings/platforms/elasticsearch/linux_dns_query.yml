@@ -9,7 +9,7 @@ default_log_source:
   index: logs-*
 
 field_mapping:
-  Image: process.executable
-  User: user.name
-  QueryName: dns.question.name
-  QueryResults: dns.answers
+  Image: process.path.keyword
+  User: user.name.keyword
+  QueryName: request.original.keyword
+  QueryResults: response.original.keyword

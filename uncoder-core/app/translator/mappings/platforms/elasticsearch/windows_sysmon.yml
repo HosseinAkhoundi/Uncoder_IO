@@ -10,58 +10,59 @@ default_log_source:
 
 
 field_mapping:
-  CommandLine: process.command_line
-  Image: process.executable
-  ParentImage: process.parent.executable
-  EventID:
-    - event.code
-    - winlog.event_id
-  CallTrace: winlog.event_data.CallTrace
-  Company: winlog.event_data.Company
-  CurrentDirectory: process.working_directory
-  Description: winlog.event_data.Description
-  DestinationHostname: destination.domain
+  CommandLine: process_command_line.keyword
+  Image: process_path.keyword
+  ParentImage: process_parent_path.keyword
+  EventID: event.id
+  CallTrace: process_call_trace.keyword
+  Company: file_company.keyword
+  CurrentDirectory: process_current_directory.keyword
+  Description: file_description.keyword
+  DestinationHostname: dst_host_name.keyword
   DestinationIp: destination.ip
-  DestinationIsIpv6: winlog.event_data.DestinationIsIpv6
+  DestinationIsIpv6: dst_is_ipv6
   DestinationPort: destination.port
-  DestinationPortName: network.protocol
-  Hashes: winlog.event_data.Hashes
-  Initiated: winlog.event_data.Initiated
-  IntegrityLevel: winlog.event_data.IntegrityLevel
-  ParentCommandLine: process.parent.command_line
-  Product: winlog.event_data.Product
-  Protocol: winlog.event_data.Protocol
-  RuleName: winlog.event_data.RuleName
-  SourceHostname: source.domain
+  DestinationPortName: dst_port_name
+  Hashes: 
+    - hash_imphash
+    - hash_md5 
+    - hash_sha1 
+    - hash_sha256
+  Initiated: network_initiated.keyword
+  IntegrityLevel: process_integrity_level
+  ParentCommandLine: process_parent_command_line.keyword
+  Product: file_product.keyword
+  Protocol: network_protocol
+  RuleName: RuleName.keyword
+  SourceHostname: src_host_name
   SourceIp: source.ip
-  SourceIsIpv6: winlog.event_data.SourceIsIpv6
+  SourceIsIpv6: src_is_ipv6
   SourcePort: source.port
-  SourcePortName: winlog.event_data.SourcePortName
-  TargetFilename: file.path
-  User:
-    - user.name
-    - winlog.user.domain
-    - winlog.user.name
-  OriginalFileName: winlog.event_data.OriginalFileName
-  Signed: winlog.event_data.Signed
-  Signature: winlog.event_data.Signature
-  SignatureStatus: winlog.event_data.SignatureStatus
-  TargetObject: winlog.event_data.TargetObject
-  Details: winlog.event_data.Details
-  QueryName: dns.question.name
-  QueryResults: dns.answers
-  QueryStatus: winlog.event_data.QueryStatus
-  IsExecutable: winlog.event_data.IsExecutable
-  PipeName: file.name
-  ImageLoaded: file.path
-  ImagePath: winlog.event_data.ImagePath
-  Imphash: winlog.event_data.Imphash
-  SourceImage: process.executable
-  StartModule: winlog.event_data.StartModule
-  TargetImage: winlog.event_data.TargetImage
+  SourcePortName: src_port_name
+  TargetFilename: file_name.keyword
+  User: user_account
+  OriginalFileName: file_name_original.keyword
+  Signed: signed
+  Signature: signature.name.keyword
+  SignatureStatus: signature_status.keyword
+  TargetObject: registry_key_path.keyword
+  Details: registry_key_value.keyword
+  QueryName: dns_query_name.keyword
+  QueryResults: dns_query_results.keyword
+  QueryStatus: dns_query_status.keyword
+  IsExecutable: IsExecutable
+  PipeName: pipe_name.keyword
+  ImageLoaded: 
+    - driver_loaded
+    - module_loaded
+  ImagePath: service_image_path.keyword
+  Imphash: hash_imphash.keyword
+  SourceImage: process_path.keyword
+  StartModule: thread_start_module.keyword
+  TargetImage: target_process_path.keyword
   Device: Device
-  ProcessID: ProcessID
-  FileVersion: FileVersion
-  StartAddress: StartAddress
-  StartFunction: StartFunction
-  EventType: winlog.event_data.EventType
+  ProcessID: process_id
+  FileVersion: file_version
+  StartAddress: thread_start_address.keyword
+  StartFunction: thread_start_function.keyword
+  EventType: event_type

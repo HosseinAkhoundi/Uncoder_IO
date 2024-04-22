@@ -9,13 +9,17 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  CommandLine: process.command_line
-  CurrentDirectory: CurrentDirectory
-  Hashes: Hashes
-  Image: process.executable
-  IntegrityLevel: IntegrityLevel
-  ParentCommandLine: process.parent.command_line
-  ParentImage: process.parent.executable
+  CommandLine: process_command_line.keyword
+  CurrentDirectory: process_current_directory.keyword
+  Hashes: 
+    - hash_imphash
+    - hash_md5
+    - hash_sha1
+    - hash_sha256
+  Image: process_path.keyword
+  IntegrityLevel: process_integrity_level
+  ParentCommandLine: process_parent_command_line.keyword
+  ParentImage: process_parent_path.keyword
   ParentUser: ParentUser
-  Product: Product
-  User: User
+  Product: file_product.keyword
+  User: user.name

@@ -9,10 +9,10 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  Image: process.executable
+  Image: process_path
   User:
   - user.name
-  - winlog.user.domain
-  - winlog.user.name
-  QueryName: dns.question.name
-  QueryResults: dns.answers
+  - user_domain
+  - user_account
+  QueryName: dns_query_name.keyword
+  QueryResults: dns_query_results.keyword

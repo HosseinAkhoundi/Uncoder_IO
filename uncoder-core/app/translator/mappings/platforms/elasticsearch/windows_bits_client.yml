@@ -9,9 +9,7 @@ default_log_source:
   index: winlogbeat-*
 
 field_mapping:
-  LocalName: winlog.event_data.LocalName
-  EventID:
-    - event.code
-    - winlog.event_id
-  RemoteName: winlog.event_data.RemoteName
-  processPath: winlog.event_data.processPath
+  LocalName: LocalName
+  EventID: event.id
+  RemoteName: RemoteName
+  processPath: process_path.keyword
